@@ -15,7 +15,7 @@ class AlumnosSerializer(serializers.ModelSerializer):
 class ProfesoresSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profesores
-        fields = [ "id", "nombre", "materias_impartidas" ]
+        fields = ["id","nombre","materias"]
 
 class MateriasSerializer(serializers.ModelSerializer):
     class Meta:
@@ -26,11 +26,11 @@ class MateriasSerializer(serializers.ModelSerializer):
 class MateriasAlumnoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Materias_Alumno
-        fields = [ "alumno", "nombreMateria" ]
+        fields = ["alumno","nombreMateria"]
 
 
 class MateriasProfesorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Materias_Profesor
-        fields = [ "profesor", "nombreMateria" ]
+        fields = ["profesor", "nombreMateria"]
 

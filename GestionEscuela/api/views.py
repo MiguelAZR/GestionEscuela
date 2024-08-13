@@ -46,6 +46,7 @@ class MateriasAlumnoApiViewSet(ModelViewSet):
     permission_class = [IsAuthenticated, IsAdminUser, IsAuthenticatedOrReadOnly]
     serializer_class = MateriasAlumnoSerializer
     queryset = Materias_Alumno.objects.all()
+    
 
     @action(
         detail=False,

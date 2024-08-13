@@ -16,12 +16,14 @@ class Profesores(models.Model):
     apellido_paterno = models.CharField(max_length=70, blank=True, null=False)
     apellido_materno = models.CharField(max_length=70, blank=True, null=False)
     disponible = models.BooleanField(blank=True, null=True)
-    def materias_impartidas(self):
-        # Obtener todas las instancias de Materias_Profesor relacionadas con este profesor
-        materias_profesor = Materias_Profesor.objects.filter(profesor=self)
-        # Extraer los nombres de las materias
-        return [materia_profesor.materia.nombreMateria for materia_profesor in materias_profesor]
 
+    def materias(self):
+        materias = Materias_Profesor.objects.filter(profesor=self)
+        
+        return [
+            materia_profesor.materia.nombreMateria for materia_profesor in materias
+        ]
+    
 class Materias_Alumno(models.Model):
     alumno = models.ForeignKey(
         Alumnos, on_delete=models.CASCADE, blank=True, null=True
@@ -42,5 +44,4 @@ class Materias_Profesor(models.Model):
     )
     def nombreMateria(self):
         return self.materia.nombreMateria
-
-
+    
