@@ -10,27 +10,27 @@ from GestionEscuela.models import (
 class AlumnosSerializer(serializers.ModelSerializer):
     class Meta:
         model = Alumnos
-        fields = "__all__"
+        fields = ["id", "nombre"]
 
 class ProfesoresSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profesores
-        fields = "__all__"
+        fields = [ "id", "nombre", "materias_impartidas" ]
 
 class MateriasSerializer(serializers.ModelSerializer):
     class Meta:
         model = Materias
-        fields = "__all__"
+        fields = [ "id", "nombreMateria" ]
 
 
 class MateriasAlumnoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Materias_Alumno
-        fields = "__all__"
+        fields = [ "alumno", "nombreMateria" ]
 
 
 class MateriasProfesorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Materias_Profesor
-        fields = "__all__"
+        fields = [ "profesor", "nombreMateria" ]
 
